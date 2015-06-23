@@ -1,0 +1,53 @@
+<%= render :partial => 'spree/admin/shared/slideshow_sub_menu' %>
+<%= render :partial => 'spree/admin/shared/slideshow_tabs', :locals => {:current => 'Slides'} %>
+
+<% content_for :page_actions do %>
+  <li><%= link_to_with_icon('icon-plus', t(:new_slide), new_admin_slideshow_slide_url(@slideshow), :id => 'new_slide_link', :class => 'button') %></li>
+<% end %>
+
+<div id="slides" data-hook></div>
+
+<% unless @slideshow.slides.any? %>
+  <div class="no-objects-found">
+    <%= t(:no_slides_found) %>.
+  </div>
+<% else %>
+  <table class="index sortable" data-hook="slides_table" data-sortable-link="<%= update_positions_admin_slideshow_slides_url(@slideshow) %>">
+    <colgroup>
+      <col style="width: 5%">
+      <col style="width: 10%">
+      <col style="width: 25%">
+      <col style="width: 45%">
+      <col style="width: 15%">
+    </colgroup>
+    <thead>
+      <tr data-hook="slides_header">
+        <th><%= t(:language) %></th>
+        <th colspan="2"><%= t(:thumbnail) %></th>
+        <th><%= t(:alt_text) %></th>
+		<th><%= t(:enabled) %></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% (@slideshow.slides).each do |slide| %>
+        <tr id="<%= spree_dom_id slide %>" data-hook="slides_row" class="<%= cycle('odd', 'even')%>">
+          <td class="no-border">
+            <span class="handle"></span>
+          </td>
+          <td><%= slide.language %></td>
+          <td>
+            <%= link_to image_tag(slide.attachment.url(:mini)), slide.attachment.url(:large) %>
+          </td>
+          <td><%= slide.presentation %></td>
+		  <td align="center"><%= icon('icon-check icon-large') if slide.enabled %></td>
+          <td class="actions">
+            <%= link_to_with_icon 'icon-edit', t(:edit), edit_admin_slideshow_slide_url(@slideshow, slide), :no_text => true, :data => {:action => 'edit'} %>
+            <%= link_to_delete slide, { :url => admin_slideshow_slide_url(@slideshow, slide), :no_text => true } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

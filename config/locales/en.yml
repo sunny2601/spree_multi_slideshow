@@ -1,0 +1,63 @@
+en:
+  images_only: "must be JPG, JPEG, PNG o GIF"
+  slideshow_details: "Slideshow Details"
+  editing_slideshow: Edit Slideshow
+  slide_settings: Slide Setting
+  add_new_slide_style: "Add New Slide Style"
+  horizontal: "Horizontal"
+  fade: "Fade"
+  vertical: "Vertical"
+  slide_settings_warning: "You will need to regenerate thumbnails if you update the paperclip styles. Use rake paperclip:refresh:thumbnails CLASS=Spree::Slide to do this."
+  slide_settings_description: "Slide Settings Description"
+  slide_settings_updated: "Slide Settings successfully updated."
+  slide_default_style: "Slide Attachments Style"
+  slide_default_url: "Slide Attachments Default URL"
+  slide_path: "Slide Attachments Path"
+  slide_styles: "Slide Paperclip Styles"
+  slide_url: "Slide Attachments URL"
+  back_to_slides_list: "Back To Slides List"
+  back_to_slideshows_list: "Back To Slideshows List"
+  new_slideshow: "New Slideshow"
+  new_slide: "New Slide"
+  listing_slideshows: "Listing Slideshows"
+  listing_slides: "Listing Slides"
+  no_slides_found: "No Slide Found"
+  enabled: Enable?
+  slide_number: Slide number
+  slide_width: Width
+  slide_height: Height
+  enable_navigation: Navigation Enable?
+  enable_pagination: Pagination Enable?
+  mode: "Transaction type"
+  auto_start: "Auto start"
+  infinite_loop: "Infinite slide"
+  hide_control_on_end: "Hide controls on end"
+  title: Title
+  url: Link url
+  attachment: attachment
+  activerecord:
+    models:
+      slideshow:
+        one: Slideshow
+        other: Slideshows
+      slide:
+        one: Slide
+        other: Slides
+    attributes:
+      slideshow:
+        category: Category
+        updated_at: Updated at
+        created_at: Created at
+        enabled: Enable?
+        slide_number: Slide number
+        slide_width: Width
+        slide_height: Height
+        enable_navigation: Navigation enable?
+        mode: "Transaction type"
+        auto_start: "Auto start"
+        infinite_loop: "Infinite slide"
+        hide_control_on_end: "Hide controls on end"
+      slide:
+        title: Title
+        url: Link url
+        attachment: attachment
