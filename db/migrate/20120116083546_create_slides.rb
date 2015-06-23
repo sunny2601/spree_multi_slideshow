@@ -1,6 +1,6 @@
 class CreateSlides < ActiveRecord::Migration
   def change
-    create_table :slides do |t|
+    create_table :spree_slides do |t|
       t.string :title, :url
       t.text :presentation
       t.boolean :enabled, :default => true
