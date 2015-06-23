@@ -1,6 +1,6 @@
 class CreateSlideshows < ActiveRecord::Migration
   def change
-    create_table :spree_slideshows do |t|
+    create_table :slideshows do |t|
       t.string :category
       t.boolean :enabled, :default => false
       t.string :mode, :default => 'horizontal'
